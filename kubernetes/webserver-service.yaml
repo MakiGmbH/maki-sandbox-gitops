@@ -1,0 +1,13 @@
+# Diese Datei ist eine Art Türsteher. Da Container kommen und gehen gibt dieser Service dem ganzen eine feste, interne IP-Adresse.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: webserver
+spec:
+  selector:
+    app: webserver #Service sucht nach allen Pods, die das Label app: webserver haben (in diesem Beispiel 2 Kopien)
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP

@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <title>Maki-Sandbox</title>
+        <style>
+            body { font-family: sans-serif; background: #f0f0f0; text-align: center; margin-top: 50px; }
+            h1 { color: #2c3e50; }
+        </style>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <p>Test der maki-sandbox aus einem Docker-Container!</p>
+    </body>
+    </html>
+kind: ConfigMap
+metadata:
+  name: webserver-html

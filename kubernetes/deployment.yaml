@@ -1,0 +1,32 @@
+# Eine Beispieldatei für den in der Basic-Variante genutzten Webserver
+# deployment ist in Kubernetes eine Art Bauleiter. Diese Datei sagt "Starte 2 identische Kopien von diesem Webserver und hänge diese HTML-Datei an"
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+  labels:
+    app: webserver
+spec:
+  replicas: 2 #Starte 2 Kopien (Ausfallsicherheit und Skalierbarkeit)
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:1.27-alpine #Gleiches Image wie aus der Basisversion
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: html-volume
+        configMap:
+          name: webserver-html #Für das Deployment soll die HTML-Datei aus der ConfigMap genommen und in den Ordner /usr/share/nginx/html gepackt werden, siehe mountPath
+
