@@ -7,4 +7,4 @@ resources:
 configMapGenerator:
   - name: webserver-html
     files:
-      - /anwendungen/index.html
+      - anwendungen/index.html
