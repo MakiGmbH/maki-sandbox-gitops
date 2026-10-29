@@ -8,7 +8,7 @@ metadata:
   labels:
     app: webserver
 spec:
-  replicas: 2 #Starte 2 Kopien (Ausfallsicherheit und Skalierbarkeit)
+  replicas: 3 #Starte 2 Kopien (Ausfallsicherheit und Skalierbarkeit)
   selector:
     matchLabels:
       app: webserver
