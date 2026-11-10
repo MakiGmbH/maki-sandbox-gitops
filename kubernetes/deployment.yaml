@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx-container
-        image: nginx:1.27-alpine
+        image: KAPUTTnginx:1.27-alpineKAPUTT
         ports:
         - containerPort: 80
           name: http
